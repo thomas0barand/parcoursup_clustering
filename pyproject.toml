@@ -1,0 +1,17 @@
+[project]
+name = "scei-project"
+version = "0.1.0"
+description = "Parcoursup Clustering Project - Analysis of French school admission data"
+authors = [
+    {name = "Thomas Barand",email = "th.barand@gmail.com"}
+]
+readme = "README.md"
+requires-python = "^3.12"
+dependencies = [
+    "numpy (>=2.3.4,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
