@@ -1,12 +1,12 @@
-# Analyse de l'Élitisme dans les Écoles d'Ingénieurs et les CPGE
+# Clustering des Formations d'Ingénieurs et CPGE - Analyse Parcoursup 2024
 
 ## Problématique
 
-**Dans quelle mesure les écoles d'ingénieurs et les Classes Préparatoires aux Grandes Écoles (CPGE) scientifiques forment-elles des groupes distincts selon leurs caractéristiques d'élitisme ?**
+**Dans quelle mesure les écoles d'ingénieurs et les Classes Préparatoires aux Grandes Écoles (CPGE) scientifiques forment-elles des groupes distincts selon leurs caractéristiques ?**
 
-Cette question, au cœur de notre étude, vise à décrypter la structuration de ces formations d'excellence de l'enseignement supérieur français. À travers l'analyse des données Parcoursup 2024, nous explorons comment ces établissements se différencient selon plusieurs dimensions de l'élitisme : sélectivité académique, diversité sociale, géographique et de genre.
+Cette question, au cœur de notre étude, vise à décrypter la structuration de ces formations de l'enseignement supérieur français. À travers l'analyse des données Parcoursup 2024, nous explorons comment ces établissements se différencient selon plusieurs dimensions : sélectivité académique, diversité sociale, géographique et de genre.
 
-Notre démarche mobilise des techniques d'analyse exploratoire et de clustering pour dépasser les classifications traditionnelles (public/privé, Paris/province) en combinant différents indicateurs : taux d'accès, proportion de boursiers, diversité des mentions au bac, mixité et origines géographiques des admis. L'identification de "profils types" émergents pourrait non seulement éclairer les mécanismes de reproduction sociale à l'œuvre dans ces filières, mais aussi contribuer à la réflexion sur des politiques éducatives plus inclusives.
+Notre démarche mobilise des techniques d'analyse exploratoire et de clustering pour dépasser les classifications traditionnelles (public/privé, Paris/province) en combinant différents indicateurs : taux d'accès, proportion de boursiers, diversité des mentions au bac, mixité et origines géographiques des admis. L'identification de "profils types" émergents permet de mieux comprendre la structure de ces filières et d'analyser leur organisation selon différentes caractéristiques mesurables.
 
 ## Source des Données
 
@@ -35,7 +35,7 @@ parcoursup/
 │   ├── eda_parcoursup.ipynb        # Analyse exploratoire principale
 │   └── eda.ipynb                   # Analyses exploratoires additionnelles
 │
-├── features.py                     # Extraction et préparation des features d'élitisme
+├── features.py                     # Extraction et préparation des features
 ├── clustering.py                   # Implémentation des algorithmes de clustering (K-means, DBSCAN)
 ├── hierarchical.py                 # Clustering hiérarchique et évaluation des métriques de distance
 ├── visualize.py                    # Fonctions de visualisation
@@ -76,7 +76,7 @@ Ce projet est organisé en plusieurs branches, chacune se concentrant sur des as
 
 ### Branche `thomas`
 Cette branche se concentre sur **l'analyse complète du pipeline de clustering** pour les CPGE :
-- Extraction et préparation approfondie des features d'élitisme
+- Extraction et préparation approfondie des features
 - Normalisation robuste des données avec contrôle du poids géographique
 - Implémentation complète des algorithmes de clustering (K-means, DBSCAN, hiérarchique)
 - Évaluation systématique des paramètres (grilles de recherche DBSCAN)
@@ -118,7 +118,7 @@ Le workflow principal suit trois étapes :
 
 #### 1. Extraction et Préparation des Features
 
-Les features d'élitisme sont extraites et nettoyées depuis les données brutes :
+Les features sont extraites et nettoyées depuis les données brutes :
 
 ```python
 # Voir features.py pour les détails
@@ -138,10 +138,10 @@ df_normalized, scaler, numeric_cols = normalize_features_for_clustering(
 )
 ```
 
-**Features d'élitisme extraites** :
+**Catégories de features extraites** :
 - **Sélectivité académique** : taux d'accès, rang du dernier appelé, mentions au bac
-- **Sélectivité sociale** : proportion de boursiers, origine géographique
-- **Prestige** : ratio candidats/places, capacité d'accueil
+- **Caractéristiques sociales** : proportion de boursiers, origine géographique
+- **Demande et capacité** : ratio candidats/places, capacité d'accueil
 - **Profil des admis** : type de bac, distribution des mentions
 
 #### 2. Clustering
