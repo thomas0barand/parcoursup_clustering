@@ -70,11 +70,47 @@ Les principales dépendances incluent :
 - `matplotlib`, `seaborn`, `plotly` : Visualisation
 - `scipy` : Calculs statistiques et clustering hiérarchique
 
+## Branches du Projet
+
+Ce projet est organisé en plusieurs branches, chacune se concentrant sur des aspects spécifiques de l'analyse :
+
+### Branche `thomas`
+Cette branche se concentre sur **l'analyse complète du pipeline de clustering** pour les CPGE :
+- Extraction et préparation approfondie des features d'élitisme
+- Normalisation robuste des données avec contrôle du poids géographique
+- Implémentation complète des algorithmes de clustering (K-means, DBSCAN, hiérarchique)
+- Évaluation systématique des paramètres (grilles de recherche DBSCAN)
+- Visualisations interactives et statiques avec PCA
+- Analyse détaillée des métriques de validation (Silhouette, Calinski-Harabasz, Davies-Bouldin)
+
+**Configuration principale** : CPGE avec DBSCAN (eps=3.0, min_samples=6)
+
+### Branche `bastien`
+Cette branche se concentre sur **la génération systématique de visualisations** des résultats de clustering :
+- Script `generate_cluster_plots.py` pour générer automatiquement des visualisations comparatives
+- Boxplots et analyses de distributions par cluster
+- Comparaison multi-algorithmes (K-means, DBSCAN, hiérarchique)
+- Visualisations organisées par dataset et caractéristiques
+
+**Focus** : Analyse comparative et génération de rapports visuels
+
+### Pour Approfondir
+
+Si vous souhaitez approfondir un aspect spécifique de l'analyse, vous pouvez explorer ces branches :
+
+```bash
+# Pour l'analyse complète du pipeline de clustering (thomas)
+git checkout thomas
+
+# Pour la génération systématique de visualisations (bastien)
+git checkout bastien
+```
+
+Chaque branche contient des scripts, configurations et analyses spécifiques adaptées à son objectif.
+
+---
+
 ## Utilisation
-
-### Configuration Actuelle (Branche `thomas`)
-
-⚠️ **Note** : Ce README et les fonctionnalités décrites ci-dessous sont spécifiques à la branche `thomas` pour le moment.
 
 ### Pipeline d'Analyse
 
@@ -144,18 +180,20 @@ Les visualisations sont générées automatiquement :
 
 ### Exécution Complète
 
-Pour exécuter le pipeline complet tel que configuré actuellement :
+Pour exécuter le pipeline complet :
 
 ```bash
 python main.py
 ```
 
-Le script `main.py` :
+Le script `main.py` (basé sur la branche `thomas`) :
 1. Charge et nettoie les données
 2. Normalise les features
-3. Effectue le clustering DBSCAN (configuré pour eps=3.0, min_samples=6)
+3. Effectue le clustering DBSCAN (configuré pour eps=3.0, min_samples=6 par défaut)
 4. Génère les visualisations et métriques
 5. Sauvegarde les résultats dans `data/df_clustering_dbscan_*.csv`
+
+> **Note** : La configuration actuelle du `master` provient de la branche `thomas`. Pour d'autres configurations ou focus analytiques, consultez les branches spécifiques mentionnées ci-dessus.
 
 ### Analyse Exploratoire
 
@@ -217,9 +255,3 @@ Les métriques calculées incluent :
 **Thomas Barand**  
 Projet Data Mining - Analyse Parcoursup 2024  
 Octobre 2024
-
----
-
-## Notes sur cette Branche
-
-Cette branche (`thomas`) est actuellement configurée pour analyser spécifiquement les **CPGE** avec une configuration DBSCAN optimisée. Les paramètres peuvent être modifiés dans `main.py` pour analyser d'autres filières ou ajuster les algorithmes de clustering.
